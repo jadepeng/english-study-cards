@@ -1138,10 +1138,20 @@
                 font-size: 0.95em;
             }
 
-            /* 游戏 */
+            /* 游戏 - 连连看保持左右两列 */
             .match-container {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .match-col {
+                gap: 8px;
+            }
+
+            .match-item {
+                padding: 10px 8px;
+                font-size: 1em;
+                border-radius: 10px;
             }
 
             .game-step-title {
