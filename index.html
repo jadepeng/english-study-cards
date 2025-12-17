@@ -1099,13 +1099,14 @@
             /* 插图移动端改为上方独立块 */
             .illustration-compact {
                 float: none;
-                width: 100%;
-                max-width: 100%;
+                width: auto;
+                max-width: 60%;
                 min-width: unset;
-                margin: 0 0 15px 0;
-                aspect-ratio: 16/9;
-                height: auto;
-                max-height: 180px;
+                margin: 0 auto 12px;
+                aspect-ratio: unset;
+                height: 120px;
+                max-height: 120px;
+                padding: 8px;
             }
 
             /* 词汇分析 */
@@ -1194,7 +1195,9 @@
             }
 
             .illustration-compact {
-                max-height: 150px;
+                height: 100px;
+                max-height: 100px;
+                max-width: 50%;
             }
 
             .word-text {
