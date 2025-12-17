@@ -1,0 +1,291 @@
+{
+    "title": "Exclamatory Sentences",
+    "titleCn": "感叹句",
+    "titleEmoji": "😲",
+    "illustrationPath": "./exclamation_illustration.png",
+    "cards": [
+        {
+            "id": "what_singular",
+            "emoji": "🌸",
+            "name": "What + a/an + Noun",
+            "nameCn": "What 感叹句（单数）",
+            "color": "#FF6B6B",
+            "audioText": "What a beautiful flower! This means the flower is very beautiful. We use What with a noun phrase.",
+            "words": [
+                {
+                    "word": "What",
+                    "pronunciation": "/wɒt/",
+                    "memory": "「哇特！」→ 惊叹时脱口而出",
+                    "breakdown": null,
+                    "extension": "注意：What 后面跟名词短语"
+                },
+                {
+                    "word": "Beautiful",
+                    "pronunciation": "/ˈbjuː.tɪ.fəl/",
+                    "memory": "「美丽的」→ Beau-ti-ful 三音节",
+                    "breakdown": "Beau(美) + ti + ful(...的)",
+                    "extension": "同义词: Pretty, Lovely, Gorgeous"
+                },
+                {
+                    "word": "Flower",
+                    "pronunciation": "/ˈflaʊ.ər/",
+                    "memory": "「花」→ 在风中 Flow(流动) 的 er",
+                    "breakdown": null,
+                    "extension": "同音词: Flour (面粉)"
+                }
+            ],
+            "coreConcept": {
+                "english": "<hl>What</hl> a <hl>beautiful</hl> flower!",
+                "chinese": "多么漂亮的一朵花啊！"
+            },
+            "grammar": {
+                "pattern": "What + a/an + 形容词 + 可数名词单数 + !",
+                "explanation": "用 What 引导感叹句时，后面要跟名词短语。单数可数名词前要加 a/an。"
+            }
+        },
+        {
+            "id": "what_plural",
+            "emoji": "🌳",
+            "name": "What + Plural Noun",
+            "nameCn": "What 感叹句（复数）",
+            "color": "#2ECC71",
+            "audioText": "What nice trees! This means the trees are very nice. When the noun is plural, we don't use a or an.",
+            "words": [
+                {
+                    "word": "Nice",
+                    "pronunciation": "/naɪs/",
+                    "memory": "「奈斯！」→ 游戏里夸人常说",
+                    "breakdown": null,
+                    "extension": "同义词: Good, Great, Wonderful"
+                },
+                {
+                    "word": "Tree",
+                    "pronunciation": "/triː/",
+                    "memory": "「树」→ 谐音「吹」风吹树摇",
+                    "breakdown": null,
+                    "extension": "复数: Trees (加 s)"
+                }
+            ],
+            "coreConcept": {
+                "english": "<hl>What</hl> <hl>nice</hl> trees!",
+                "chinese": "多么漂亮的树啊！"
+            },
+            "grammar": {
+                "pattern": "What + 形容词 + 可数名词复数 + !",
+                "explanation": "复数名词前不需要 a/an，直接用形容词修饰名词。"
+            }
+        },
+        {
+            "id": "how_singular",
+            "emoji": "🌺",
+            "name": "How + Adjective (Singular)",
+            "nameCn": "How 感叹句（单数）",
+            "color": "#E84393",
+            "audioText": "How beautiful the flower is! This means the flower is very, very beautiful. We use How with an adjective.",
+            "words": [
+                {
+                    "word": "How",
+                    "pronunciation": "/haʊ/",
+                    "memory": "「好！」→ 中文「好漂亮」也是感叹",
+                    "breakdown": null,
+                    "extension": "注意：How 后面直接跟形容词"
+                }
+            ],
+            "coreConcept": {
+                "english": "<hl>How</hl> <hl>beautiful</hl> the flower <hl>is</hl>!",
+                "chinese": "这朵花是多么漂亮啊！"
+            },
+            "grammar": {
+                "pattern": "How + 形容词 + the + 名词 + is + !",
+                "explanation": "How 后面直接跟形容词，然后是 the + 名词 + is。单数名词用 is。"
+            }
+        },
+        {
+            "id": "how_plural",
+            "emoji": "🌲",
+            "name": "How + Adjective (Plural)",
+            "nameCn": "How 感叹句（复数）",
+            "color": "#3498DB",
+            "audioText": "How nice the trees are! This means the trees are very, very nice. When the noun is plural, we use are.",
+            "words": [
+                {
+                    "word": "Are",
+                    "pronunciation": "/ɑːr/",
+                    "memory": "「复数用 are」→ They are, We are",
+                    "breakdown": null,
+                    "extension": "对比: is(单数) vs are(复数)"
+                }
+            ],
+            "coreConcept": {
+                "english": "<hl>How</hl> <hl>nice</hl> the trees <hl>are</hl>!",
+                "chinese": "这些树是多么漂亮啊！"
+            },
+            "grammar": {
+                "pattern": "How + 形容词 + the + 名词复数 + are + !",
+                "explanation": "复数名词要用 are，不能用 is。"
+            }
+        }
+    ],
+    "summary": {
+        "title": "感叹句句型对比",
+        "comparison": [
+            {
+                "type": "What 感叹句",
+                "formula": "What + (a/an) + 形容词 + 名词 + !",
+                "focus": "强调名词",
+                "examples": [
+                    "What a beautiful flower!",
+                    "What nice trees!"
+                ]
+            },
+            {
+                "type": "How 感叹句",
+                "formula": "How + 形容词 + the + 名词 + is/are + !",
+                "focus": "强调形容词",
+                "examples": [
+                    "How beautiful the flower is!",
+                    "How nice the trees are!"
+                ]
+            }
+        ],
+        "tips": [
+            "What 后面跟名词短语（含名词）",
+            "How 后面直接跟形容词",
+            "单数可数名词前要加 a/an",
+            "复数名词用 are，单数名词用 is"
+        ]
+    },
+    "games": {
+        "matching": [
+            {
+                "id": "what",
+                "emoji": "😲",
+                "word": "What"
+            },
+            {
+                "id": "how",
+                "emoji": "😮",
+                "word": "How"
+            },
+            {
+                "id": "beautiful",
+                "emoji": "🌸",
+                "word": "Beautiful"
+            },
+            {
+                "id": "nice",
+                "emoji": "👍",
+                "word": "Nice"
+            },
+            {
+                "id": "flower",
+                "emoji": "🌺",
+                "word": "Flower"
+            },
+            {
+                "id": "tree",
+                "emoji": "🌳",
+                "word": "Tree"
+            }
+        ],
+        "spelling": [
+            {
+                "emoji": "🌸",
+                "display": [
+                    "B",
+                    "_",
+                    "a",
+                    "u",
+                    "t",
+                    "_",
+                    "f",
+                    "u",
+                    "l"
+                ],
+                "blanks": [
+                    1,
+                    5
+                ],
+                "answers": [
+                    "e",
+                    "i"
+                ]
+            },
+            {
+                "emoji": "🌺",
+                "display": [
+                    "F",
+                    "l",
+                    "_",
+                    "w",
+                    "_",
+                    "r"
+                ],
+                "blanks": [
+                    2,
+                    4
+                ],
+                "answers": [
+                    "o",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🌳",
+                "display": [
+                    "T",
+                    "r",
+                    "_",
+                    "_",
+                    "s"
+                ],
+                "blanks": [
+                    2,
+                    3
+                ],
+                "answers": [
+                    "e",
+                    "e"
+                ]
+            }
+        ],
+        "sentenceBuilder": [
+            {
+                "type": "what",
+                "words": [
+                    "What",
+                    "a",
+                    "beautiful",
+                    "flower",
+                    "!"
+                ],
+                "correctOrder": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            },
+            {
+                "type": "how",
+                "words": [
+                    "How",
+                    "nice",
+                    "the",
+                    "trees",
+                    "are",
+                    "!"
+                ],
+                "correctOrder": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    }
+}

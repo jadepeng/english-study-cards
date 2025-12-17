@@ -1,0 +1,186 @@
+{
+    "title": "Kitty's Dream",
+    "titleEmoji": "💭",
+    "illustrationPath": "./illustration_dream.png",
+    "cards": [
+        {
+            "id": "dream_have",
+            "emoji": "⭐",
+            "name": "I have a dream",
+            "nameCn": "我有一个梦想",
+            "color": "#9B59B6",
+            "audioText": "I have a dream. Dream means to hope for something wonderful, or to see pictures in your mind while you sleep.",
+            "words": [
+                {
+                    "word": "dream",
+                    "pronunciation": "/driːm/",
+                    "memory": "谐音「追梦」→ dream 就是追逐的梦",
+                    "breakdown": "dr + eam，ea 发长音 /iː/",
+                    "extension": "dreamer (做梦的人/梦想家)"
+                }
+            ],
+            "coreConcept": {
+                "english": "I have a <hl>dream</hl>.",
+                "chinese": "我有一个梦想。"
+            }
+        },
+        {
+            "id": "dream_of",
+            "emoji": "🍬",
+            "name": "dream of",
+            "nameCn": "梦见…（做梦）",
+            "color": "#E84393",
+            "audioText": "I dream of many sweets. Dream of means to imagine something you want, or to see it in your dreams.",
+            "words": [
+                {
+                    "word": "dream of",
+                    "pronunciation": "/driːm ɒv/",
+                    "memory": "dream of = 做梦 + 梦见，后面接「东西」",
+                    "breakdown": null,
+                    "extension": "dream of doing sth. (梦想做某事)"
+                },
+                {
+                    "word": "sweets",
+                    "pronunciation": "/swiːts/",
+                    "memory": "sweet(甜的) + s → 甜甜的糖果们",
+                    "breakdown": null,
+                    "extension": "candy (糖果，美式说法)"
+                }
+            ],
+            "coreConcept": {
+                "english": "I <hl>dream of</hl> many <hl>sweets</hl>.",
+                "chinese": "我梦见很多糖果。（做梦梦见）"
+            }
+        },
+        {
+            "id": "dream_about",
+            "emoji": "🐱",
+            "name": "dream about",
+            "nameCn": "梦见…（关于）",
+            "color": "#6C5CE7",
+            "audioText": "I dream about Kitty. Dream about means to have dreams that include someone or something.",
+            "words": [
+                {
+                    "word": "dream about",
+                    "pronunciation": "/driːm əˈbaʊt/",
+                    "memory": "dream about = 梦见，后面接「人或事物」",
+                    "breakdown": null,
+                    "extension": "about 表示「关于」的意思"
+                }
+            ],
+            "coreConcept": {
+                "english": "I <hl>dream about</hl> Kitty.",
+                "chinese": "我梦见了凯蒂。"
+            }
+        },
+        {
+            "id": "dream_often",
+            "emoji": "🏠",
+            "name": "dreams of home",
+            "nameCn": "常常梦见家",
+            "color": "#3498DB",
+            "audioText": "He often dreams of home. When he is far away, he often dreams about his family and his house.",
+            "words": [
+                {
+                    "word": "often",
+                    "pronunciation": "/ˈɒf.ən/",
+                    "memory": "谐音「偶分」→ 偶尔分开时，经常想念",
+                    "breakdown": "注意：t 不发音！",
+                    "extension": "频率副词: always > usually > often > sometimes"
+                },
+                {
+                    "word": "dreams",
+                    "pronunciation": "/driːmz/",
+                    "memory": "第三人称单数 (he/she/it) 要加 s",
+                    "breakdown": "dream + s → dreams",
+                    "extension": "动词变化: dream - dreams - dreamed/dreamt"
+                }
+            ],
+            "coreConcept": {
+                "english": "He <hl>often</hl> <hl>dreams</hl> of home.",
+                "chinese": "他经常梦见家。"
+            }
+        }
+    ],
+    "games": {
+        "matching": [
+            {
+                "id": "dream",
+                "emoji": "💭",
+                "word": "Dream"
+            },
+            {
+                "id": "sweets",
+                "emoji": "🍬",
+                "word": "Sweets"
+            },
+            {
+                "id": "often",
+                "emoji": "🔄",
+                "word": "Often"
+            },
+            {
+                "id": "home",
+                "emoji": "🏠",
+                "word": "Home"
+            }
+        ],
+        "spelling": [
+            {
+                "emoji": "💭",
+                "display": [
+                    "d",
+                    "r",
+                    "_",
+                    "_",
+                    "m"
+                ],
+                "blanks": [
+                    2,
+                    3
+                ],
+                "answers": [
+                    "e",
+                    "a"
+                ]
+            },
+            {
+                "emoji": "🍬",
+                "display": [
+                    "s",
+                    "w",
+                    "_",
+                    "_",
+                    "t",
+                    "s"
+                ],
+                "blanks": [
+                    2,
+                    3
+                ],
+                "answers": [
+                    "e",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🔄",
+                "display": [
+                    "_",
+                    "f",
+                    "t",
+                    "_",
+                    "n"
+                ],
+                "blanks": [
+                    0,
+                    3
+                ],
+                "answers": [
+                    "o",
+                    "e"
+                ]
+            }
+        ]
+    }
+}

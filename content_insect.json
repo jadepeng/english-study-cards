@@ -1,0 +1,237 @@
+{
+    "title": "Insect Friends",
+    "titleEmoji": "🐜",
+    "illustrationPath": "./illustration_insect.png",
+    "cards": [
+        {
+            "id": "insect_intro",
+            "emoji": "🔍",
+            "name": "Look at the insect",
+            "nameCn": "看看这只昆虫",
+            "color": "#2ECC71",
+            "audioText": "Look at the insect. It's an ant. An insect is a small animal with six legs.",
+            "words": [
+                {
+                    "word": "insect",
+                    "pronunciation": "/ˈɪn.sekt/",
+                    "memory": "谐音「阴塞可特」→ 昆虫躲在阴暗角落",
+                    "breakdown": "in(里面) + sect(切) → 身体像被切成几段的小动物",
+                    "extension": "bug (虫子), beetle (甲虫)"
+                },
+                {
+                    "word": "ant",
+                    "pronunciation": "/ænt/",
+                    "memory": "谐音「安特」→ 蚂蚁很勤劳很安定",
+                    "breakdown": "a + nt，只有3个字母的小单词",
+                    "extension": "aunt (阿姨) 发音相同！"
+                }
+            ],
+            "coreConcept": {
+                "english": "Look at the <hl>insect</hl>. It's an <hl>ant</hl>.",
+                "chinese": "看看这只昆虫。这是一只蚂蚁。"
+            }
+        },
+        {
+            "id": "ant_color",
+            "emoji": "⬛",
+            "name": "It's black",
+            "nameCn": "它是黑色的",
+            "color": "#34495E",
+            "audioText": "It's black. The ant is black. Black is a very dark color, like night.",
+            "words": [
+                {
+                    "word": "black",
+                    "pronunciation": "/blæk/",
+                    "memory": "bl + ack，black sounds like「布莱克」",
+                    "breakdown": "bl- 开头 + -ack 结尾",
+                    "extension": "white (白色), red (红色), brown (棕色)"
+                }
+            ],
+            "coreConcept": {
+                "english": "It's <hl>black</hl>.",
+                "chinese": "它是黑色的。"
+            }
+        },
+        {
+            "id": "ant_carry",
+            "emoji": "💪",
+            "name": "It can carry",
+            "nameCn": "它能搬运",
+            "color": "#E74C3C",
+            "audioText": "It can carry. How strong! An ant can carry things much heavier than itself.",
+            "words": [
+                {
+                    "word": "carry",
+                    "pronunciation": "/ˈkær.i/",
+                    "memory": "谐音「凯瑞」→ carry 就是扛着东西走",
+                    "breakdown": "carr + y，双写 r",
+                    "extension": "carry on (继续), carry out (执行)"
+                },
+                {
+                    "word": "strong",
+                    "pronunciation": "/strɒŋ/",
+                    "memory": "str- 开头表示力量，像 street, strike",
+                    "breakdown": "str + ong，注意 ng 的鼻音",
+                    "extension": "weak (弱的) 是反义词"
+                }
+            ],
+            "coreConcept": {
+                "english": "It can <hl>carry</hl>. How <hl>strong</hl>!",
+                "chinese": "它能搬运东西。多么强壮啊！"
+            }
+        },
+        {
+            "id": "ant_body",
+            "emoji": "🐜",
+            "name": "Body Parts",
+            "nameCn": "身体部位",
+            "color": "#9B59B6",
+            "audioText": "It has one head, one body, two feelers and six legs. Let's count together!",
+            "words": [
+                {
+                    "word": "head",
+                    "pronunciation": "/hed/",
+                    "memory": "h + ead，ea 发短音 /e/",
+                    "breakdown": null,
+                    "extension": "headache (头痛)"
+                },
+                {
+                    "word": "body",
+                    "pronunciation": "/ˈbɒd.i/",
+                    "memory": "谐音「巴迪」→ body 是你的好朋友(buddy)",
+                    "breakdown": "bod + y",
+                    "extension": "everybody (每个人)"
+                },
+                {
+                    "word": "feeler",
+                    "pronunciation": "/ˈfiː.lər/",
+                    "memory": "feel(感觉) + er → 用来感觉的器官 = 触角",
+                    "breakdown": "feel + er",
+                    "extension": "antenna (触角/天线) 同义词"
+                },
+                {
+                    "word": "leg",
+                    "pronunciation": "/leɡ/",
+                    "memory": "l + eg，只有3个字母",
+                    "breakdown": null,
+                    "extension": "legs (复数), arm (手臂)"
+                }
+            ],
+            "coreConcept": {
+                "english": "It has one <hl>head</hl>, one <hl>body</hl>, two <hl>feelers</hl> and six <hl>legs</hl>.",
+                "chinese": "它有一个头，一个身体，两根触角和六条腿。"
+            }
+        }
+    ],
+    "games": {
+        "matching": [
+            {
+                "id": "ant",
+                "emoji": "🐜",
+                "word": "Ant"
+            },
+            {
+                "id": "insect",
+                "emoji": "🪲",
+                "word": "Insect"
+            },
+            {
+                "id": "strong",
+                "emoji": "💪",
+                "word": "Strong"
+            },
+            {
+                "id": "head",
+                "emoji": "🧠",
+                "word": "Head"
+            },
+            {
+                "id": "leg",
+                "emoji": "🦵",
+                "word": "Leg"
+            }
+        ],
+        "spelling": [
+            {
+                "emoji": "🐜",
+                "display": [
+                    "_",
+                    "n",
+                    "t"
+                ],
+                "blanks": [
+                    0
+                ],
+                "answers": [
+                    "a"
+                ]
+            },
+            {
+                "emoji": "⬛",
+                "display": [
+                    "b",
+                    "l",
+                    "_",
+                    "c",
+                    "k"
+                ],
+                "blanks": [
+                    2
+                ],
+                "answers": [
+                    "a"
+                ]
+            },
+            {
+                "emoji": "🪲",
+                "display": [
+                    "_",
+                    "n",
+                    "s",
+                    "_",
+                    "c",
+                    "t"
+                ],
+                "blanks": [
+                    0,
+                    3
+                ],
+                "answers": [
+                    "i",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "💪",
+                "display": [
+                    "s",
+                    "t",
+                    "r",
+                    "_",
+                    "n",
+                    "g"
+                ],
+                "blanks": [
+                    3
+                ],
+                "answers": [
+                    "o"
+                ]
+            },
+            {
+                "emoji": "🦵",
+                "display": [
+                    "l",
+                    "_",
+                    "g"
+                ],
+                "blanks": [
+                    1
+                ],
+                "answers": [
+                    "e"
+                ]
+            }
+        ]
+    }
+}

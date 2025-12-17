@@ -1,0 +1,73 @@
+{
+    "cards": [
+        {
+            "id": "kittys_dream",
+            "title": "Kitty's Dream",
+            "titleCn": "凯蒂的梦",
+            "emoji": "💭",
+            "cover": "./illustration_dream.png",
+            "contentFile": "content_dream.json",
+            "difficulty": "easy",
+            "tags": [
+                "动词短语",
+                "dream of",
+                "dream about"
+            ]
+        },
+        {
+            "id": "exclamation_sentences",
+            "title": "Exclamatory Sentences",
+            "titleCn": "感叹句",
+            "emoji": "😲",
+            "cover": "./exclamation_illustration.png",
+            "contentFile": "content_exclamation.json",
+            "difficulty": "medium",
+            "tags": [
+                "语法",
+                "句型",
+                "What",
+                "How"
+            ]
+        },
+        {
+            "id": "there_be_practice",
+            "title": "There be Practice",
+            "titleCn": "There be 句型练习",
+            "emoji": "🏫",
+            "cover": "./illustration.png",
+            "contentFile": "content_there_be.json",
+            "difficulty": "medium",
+            "tags": [
+                "语法",
+                "句型"
+            ]
+        },
+        {
+            "id": "plant_friends",
+            "title": "Plant Friends",
+            "titleCn": "植物朋友",
+            "emoji": "🌱",
+            "cover": "./plant_illustration_1765936378069.png",
+            "contentFile": "content.json",
+            "difficulty": "easy",
+            "tags": [
+                "植物",
+                "自然"
+            ]
+        },
+        {
+            "id": "insect_friends",
+            "title": "Insect Friends",
+            "titleCn": "昆虫朋友",
+            "emoji": "🐜",
+            "cover": "./illustration_insect.png",
+            "contentFile": "content_insect.json",
+            "difficulty": "easy",
+            "tags": [
+                "昆虫",
+                "蚂蚁",
+                "身体部位"
+            ]
+        }
+    ]
+}

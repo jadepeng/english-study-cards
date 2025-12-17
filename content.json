@@ -1,0 +1,179 @@
+{
+  "title": "Plant Friends",
+  "titleEmoji": "🌱",
+  "illustrationPath": "./plant_illustration_1765936378069.png",
+  "cards": [
+    {
+      "id": "rose",
+      "emoji": "🌹",
+      "name": "Rose",
+      "nameCn": "玫瑰",
+      "color": "#FF6B6B",
+      "audioText": "Rose. It has leaves. They are small and green. It has a flower. It is red.",
+      "words": [
+        {
+          "word": "Rose",
+          "pronunciation": "/rəʊz/",
+          "memory": "谐音「肉丝」→ 玫瑰花下吃肉丝",
+          "breakdown": null,
+          "extension": "关联词: Rise (上升) - 发音相近"
+        },
+        {
+          "word": "Leaf / Leaves",
+          "pronunciation": "/liːf/ /liːvz/",
+          "memory": "Leaf 像 Life(生命) → 叶子是树的生命",
+          "breakdown": "Leaf(单) → Leaves(复, f变v加es)",
+          "extension": null
+        }
+      ],
+      "coreConcept": {
+        "english": "Look at the rose. It has <hl>leaves</hl>. They are small and green. It has a <hl>flower</hl>. It's red.",
+        "chinese": "看看玫瑰。它有叶子，又小又绿。它有一朵花，是红色的。"
+      }
+    },
+    {
+      "id": "narcissus",
+      "emoji": "🧅",
+      "name": "Narcissus",
+      "nameCn": "水仙",
+      "color": "#4ECDC4",
+      "audioText": "Narcissus. It has stems. They are long and green. It has roots too. They are short and white.",
+      "words": [
+        {
+          "word": "Narcissus",
+          "pronunciation": "/nɑːrˈsɪs.əs/",
+          "memory": "「拿(Nar)起(ci)水仙去宿舍(sus)」",
+          "breakdown": "Nar - cis - sus",
+          "extension": "典故: 希腊神话中自恋少年 Narcissus 的故事"
+        },
+        {
+          "word": "Stem",
+          "pronunciation": "/stem/",
+          "memory": "谐音「死藤木」→ 植物的茎",
+          "breakdown": null,
+          "extension": null
+        },
+        {
+          "word": "Root",
+          "pronunciation": "/ruːt/",
+          "memory": "谐音「入土」→ 根扎入土里",
+          "breakdown": null,
+          "extension": null
+        }
+      ],
+      "coreConcept": {
+        "english": "Look at the narcissus. It has <hl>stems</hl>. They are long and <hl>green</hl>. It has <hl>roots</hl> too. They are short and white.",
+        "chinese": "看看水仙。它有茎，又长又绿。它也有根，又短又白。"
+      }
+    },
+    {
+      "id": "sunflower",
+      "emoji": "🌻",
+      "name": "Sunflower",
+      "nameCn": "向日葵",
+      "color": "#FFD93D",
+      "audioText": "Sunflower. We both like the sunflower. It has a big and yellow flower. How nice the flowers are!",
+      "words": [
+        {
+          "word": "Sunflower",
+          "pronunciation": "/ˈsʌnˌflaʊ.ər/",
+          "memory": "像太阳一样金黄，且跟着太阳转",
+          "breakdown": "Sun(太阳) + Flower(花) = 向着太阳的花",
+          "extension": null
+        },
+        {
+          "word": "Flower",
+          "pronunciation": "/ˈflaʊ.ər/",
+          "memory": null,
+          "breakdown": "Flow(流动) + er → 在风中摇曳的花",
+          "extension": "同音词: Flour (面粉) - 发音完全相同"
+        }
+      ],
+      "coreConcept": {
+        "english": "We both like the <hl>sunflower</hl>. It has a <hl>big and yellow</hl> flower. How nice the flowers are!",
+        "chinese": "我们都喜欢向日葵。它有一朵又大又黄的花。这些花真漂亮啊！"
+      }
+    }
+  ],
+  "games": {
+    "matching": [
+      {
+        "id": "rose",
+        "emoji": "🌹",
+        "word": "Rose"
+      },
+      {
+        "id": "sun",
+        "emoji": "🌻",
+        "word": "Sunflower"
+      },
+      {
+        "id": "leaf",
+        "emoji": "🍃",
+        "word": "Leaf"
+      },
+      {
+        "id": "nar",
+        "emoji": "🧅",
+        "word": "Narcissus"
+      }
+    ],
+    "spelling": [
+      {
+        "emoji": "🌹",
+        "display": [
+          "R",
+          "_",
+          "s",
+          "_"
+        ],
+        "blanks": [
+          1,
+          3
+        ],
+        "answers": [
+          "o",
+          "e"
+        ]
+      },
+      {
+        "emoji": "🌻",
+        "display": [
+          "Y",
+          "e",
+          "l",
+          "_",
+          "o",
+          "_"
+        ],
+        "blanks": [
+          3,
+          5
+        ],
+        "answers": [
+          "l",
+          "w"
+        ]
+      },
+      {
+        "emoji": "🍃",
+        "display": [
+          "L",
+          "_",
+          "a",
+          "v",
+          "e",
+          "_"
+        ],
+        "blanks": [
+          1,
+          5
+        ],
+        "answers": [
+          "e",
+          "s"
+        ]
+      }
+    ]
+  }
+}

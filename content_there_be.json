@@ -1,0 +1,214 @@
+{
+    "title": "There be 句型练习",
+    "titleEmoji": "🏫",
+    "illustrationPath": "./illustration.png",
+    "cards": [
+        {
+            "id": "table_scene",
+            "emoji": "🥣",
+            "name": "Tableware",
+            "nameCn": "餐具",
+            "color": "#FF6B6B",
+            "audioText": "There are two bowls and three pairs of chopsticks on the table.",
+            "words": [
+                {
+                    "word": "Bowl",
+                    "pronunciation": "/bəʊl/",
+                    "memory": "谐音「波」→ 碗里的汤有波纹；形状像 Ball(球) 的下半部",
+                    "breakdown": null,
+                    "extension": "Plural: Bowls"
+                },
+                {
+                    "word": "Chopsticks",
+                    "pronunciation": "/ˈtʃɒp.stɪks/",
+                    "memory": "用这根棍子(Sticks)去夹被切(Chop)好的菜",
+                    "breakdown": "Chop(砍/切) + Sticks(棍子)",
+                    "extension": "Pair of chopsticks (一双筷子)"
+                }
+            ],
+            "coreConcept": {
+                "english": "There are two <hl>bowls</hl> and three pairs of <hl>chopsticks</hl> on the table.",
+                "chinese": "餐桌上有两只碗和三双筷子。"
+            }
+        },
+        {
+            "id": "playground_scene",
+            "emoji": "🛝",
+            "name": "Playground",
+            "nameCn": "操场",
+            "color": "#4ECDC4",
+            "audioText": "There are many boys and girls in the playground.",
+            "words": [
+                {
+                    "word": "Playground",
+                    "pronunciation": "/ˈpleɪ.ɡraʊnd/",
+                    "memory": "Play(玩) 的 Ground(地面/场所)",
+                    "breakdown": "Play + Ground",
+                    "extension": null
+                },
+                {
+                    "word": "Many",
+                    "pronunciation": "/ˈmen.i/",
+                    "memory": "谐音「满」→ 满满当当的，有很多",
+                    "breakdown": null,
+                    "extension": "Review: Much (用于不可数)"
+                }
+            ],
+            "coreConcept": {
+                "english": "There are <hl>many</hl> boys and girls in the <hl>playground</hl>.",
+                "chinese": "操场上有许多男孩和女孩。"
+            }
+        },
+        {
+            "id": "library_scene",
+            "emoji": "📚",
+            "name": "Library",
+            "nameCn": "图书馆",
+            "color": "#FFD93D",
+            "audioText": "There are many books in the library.",
+            "words": [
+                {
+                    "word": "Library",
+                    "pronunciation": "/ˈlaɪ.brər.i/",
+                    "memory": "Li(来) + bra(不来) + ry(瑞) → 来不来瑞典的图书馆？",
+                    "breakdown": "Li - bra - ry",
+                    "extension": "Librarian (图书管理员)"
+                }
+            ],
+            "coreConcept": {
+                "english": "There are many <hl>books</hl> in the <hl>library</hl>.",
+                "chinese": "图书馆里有许多书。"
+            }
+        },
+        {
+            "id": "nature_scene",
+            "emoji": "🐔",
+            "name": "Nature",
+            "nameCn": "大自然",
+            "color": "#3498DB",
+            "audioText": "There is a hen and seven chicks under the tree.",
+            "words": [
+                {
+                    "word": "Hen",
+                    "pronunciation": "/hen/",
+                    "memory": "谐音「恨」→ 母鸡恨黄鼠狼",
+                    "breakdown": null,
+                    "extension": "Cock/Rooster (公鸡)"
+                },
+                {
+                    "word": "Chick",
+                    "pronunciation": "/tʃɪk/",
+                    "memory": "Chicken(鸡) 的小时候就是 Chick",
+                    "breakdown": null,
+                    "extension": null
+                }
+            ],
+            "coreConcept": {
+                "english": "There is a <hl>hen</hl> and seven <hl>chicks</hl> under the tree.",
+                "chinese": "大树底下有一只母鸡和七只小鸡。"
+            }
+        }
+    ],
+    "games": {
+        "matching": [
+            {
+                "id": "bowl",
+                "emoji": "🥣",
+                "word": "Bowl"
+            },
+            {
+                "id": "chopsticks",
+                "emoji": "🥢",
+                "word": "Chopsticks"
+            },
+            {
+                "id": "playground",
+                "emoji": "🛝",
+                "word": "Playground"
+            },
+            {
+                "id": "library",
+                "emoji": "📚",
+                "word": "Library"
+            },
+            {
+                "id": "hen",
+                "emoji": "🐔",
+                "word": "Hen"
+            },
+            {
+                "id": "chick",
+                "emoji": "🐣",
+                "word": "Chick"
+            }
+        ],
+        "spelling": [
+            {
+                "emoji": "🥣",
+                "display": [
+                    "B",
+                    "_",
+                    "w",
+                    "l"
+                ],
+                "blanks": [
+                    1
+                ],
+                "answers": [
+                    "o"
+                ]
+            },
+            {
+                "emoji": "🐔",
+                "display": [
+                    "H",
+                    "_",
+                    "n"
+                ],
+                "blanks": [
+                    1
+                ],
+                "answers": [
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🐣",
+                "display": [
+                    "C",
+                    "h",
+                    "_",
+                    "c",
+                    "k"
+                ],
+                "blanks": [
+                    2
+                ],
+                "answers": [
+                    "i"
+                ]
+            },
+            {
+                "emoji": "🥢",
+                "display": [
+                    "C",
+                    "h",
+                    "_",
+                    "p",
+                    "s",
+                    "t",
+                    "i",
+                    "c",
+                    "k",
+                    "s"
+                ],
+                "blanks": [
+                    2
+                ],
+                "answers": [
+                    "o"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Card - 快乐学习卡</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+SC:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F0F9FF;
+            --text-color: #2D3436;
+            --card-bg: #FFFFFF;
+            --primary: #667eea;
+            --primary-dark: #764ba2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Fredoka', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Menu */
+        .sidebar {
+            width: 60px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 15px 8px;
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            z-index: 200;
+        }
+
+        .sidebar.expanded {
+            width: 180px;
+            padding: 20px 15px;
+        }
+
+        .menu-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-title {
+            color: white;
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .sidebar.expanded .menu-title {
+            display: block;
+        }
+
+        .menu-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .menu-item.active {
+            background: white;
+            color: var(--primary);
+        }
+
+        .menu-item-emoji {
+            font-size: 1.3em;
+        }
+
+        .menu-item-title,
+        .menu-item-sub {
+            display: none;
+        }
+
+        .sidebar.expanded .menu-item-title {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .sidebar.expanded .menu-item-sub {
+            display: block;
+            font-size: 0.7em;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 60px;
+            transition: margin-left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .sidebar.expanded~.main-content {
+            margin-left: 180px;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            background: white;
+            border-bottom: 2px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 20px 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .main-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.6em;
+            color: #333;
+            margin: 0;
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-text {
+            font-size: 0.85em;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .progress-container {
+            width: 120px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .tab-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            border: none;
+            background: #f0f0f0;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1em;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+            color: #888;
+            font-weight: 600;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .tab-content {
+            flex: 1;
+            display: none;
+            padding: 0;
+            background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+            overflow-y: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Study Content */
+        .study-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .progress-text {
+            font-size: 0.9em;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .progress-container {
+            flex: 1;
+            max-width: 200px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        /* Illustration - Compact */
+        .illustration-compact {
+            float: right;
+            width: 18%;
+            min-width: 120px;
+            max-width: 200px;
+            aspect-ratio: 1;
+            margin: 0 0 15px 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .illustration-compact:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .illustration-compact img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Image Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Card Wrapper with Side Navigation */
+        .card-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .side-nav {
+            position: sticky;
+            top: 120px;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .page-btn.prev {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+        }
+
+        .page-btn.next {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+        }
+
+        .page-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-btn:disabled {
+            background: #e0e0e0;
+            color: #bbb;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .page-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .page-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-dot.active {
+            background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+            transform: scale(1.4);
+        }
+
+        .cards-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Card */
+        .plant-card {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .plant-card.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .plant-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .section-label {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin: 15px 0 8px;
+            font-weight: bold;
+        }
+
+        /* Word Analysis */
+        .word-analysis {
+            background-color: #fffbf0;
+            border: 2px dashed #ffe0b2;
+            border-radius: 12px;
+            padding: 18px;
+            font-size: 1.05em;
+        }
+
+        .word-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .word-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .word-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .word-text {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .word-pron {
+            font-family: 'Times New Roman', serif;
+            color: #7f8c8d;
+            font-size: 1em;
+        }
+
+        .word-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            font-size: 0.9em;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .tag-break {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .tag-memory {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+
+        .extension-toggle {
+            font-size: 0.75em;
+            color: #27ae60;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: auto;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .extension-content {
+            display: none;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dotted #ccc;
+        }
+
+        .tag-related {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* Concept Box */
+        .concept-box {
+            background-color: #f0f8ff;
+            border-radius: 12px;
+            padding: 18px;
+            font-size: 1em;
+            line-height: 1.7;
+            color: #333;
+            border-left: 4px solid #3498db;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #c0392b;
+            background-color: rgba(255, 255, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .chinese-text {
+            color: #555;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: block;
+            padding-left: 12px;
+            border-left: 3px solid #ddd;
+        }
+
+        /* Audio Button */
+        .audio-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .audio-btn.small {
+            width: 26px;
+            height: 26px;
+            font-size: 0.75em;
+        }
+
+        /* Complete Button */
+        .complete-btn {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+        }
+
+        .complete-btn.show {
+            opacity: 1;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .complete-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        /* Games */
+        .game-step {
+            display: none;
+        }
+
+        .game-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .game-step-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8em;
+            color: #6c5ce7;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .game-step-desc {
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+            margin-bottom: 25px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+
+        /* Complete Page */
+        .complete-page {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .complete-emoji {
+            font-size: 5em;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .complete-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5em;
+            color: #2ecc71;
+            margin: 20px 0 10px;
+        }
+
+        .complete-text {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .complete-subtext {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .complete-subtext strong {
+            color: #e74c3c;
+            font-size: 1.3em;
+        }
+
+        .complete-share-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-family: 'Fredoka', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .complete-share-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .game-section-title {
+            text-align: center;
+            font-size: 1.5em;
+            color: #6c5ce7;
+            margin-bottom: 25px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .match-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .match-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .match-item {
+            background: #f8f9fa;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.1em;
+        }
+
+        .match-item:hover {
+            transform: scale(1.03);
+        }
+
+        .match-item.selected {
+            border-color: #3498db;
+            background-color: #e3f2fd;
+        }
+
+        .match-item.correct {
+            border-color: #2ecc71;
+            background-color: #e8f5e9;
+            color: #2ecc71;
+            pointer-events: none;
+        }
+
+        .spell-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        .spell-icon {
+            font-size: 1.8em;
+            margin-right: 15px;
+            width: 45px;
+            text-align: center;
+        }
+
+        .spell-input-container {
+            font-family: monospace;
+            font-size: 1.3em;
+            letter-spacing: 4px;
+        }
+
+        .spell-input {
+            width: 36px;
+            height: 36px;
+            font-size: 1em;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin: 0 2px;
+            outline: none;
+        }
+
+        .spell-input:focus {
+            border-color: #FFD93D;
+        }
+
+        .spell-input.correct {
+            background-color: #e8f5e9;
+            border-color: #2ecc71;
+        }
+
+        .spell-input.wrong {
+            border-color: #e74c3c;
+            background-color: #fadbd8;
+        }
+
+        .check-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            font-size: 1.8em;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .modal-btn {
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #eee;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 50px;
+                padding: 10px 5px;
+            }
+
+            .sidebar.expanded {
+                width: 160px;
+            }
+
+            .main-content {
+                margin-left: 50px;
+            }
+
+            .sidebar.expanded~.main-content {
+                margin-left: 160px;
+            }
+
+            .main-title {
+                font-size: 1.6em;
+            }
+
+            .illustration-section img {
+                max-height: 140px;
+            }
+
+            .plant-card {
+                padding: 18px;
+            }
+
+            .plant-title {
+                font-size: 1.2em;
+            }
+
+            .page-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1em;
+            }
+
+            .match-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .tab-btn {
+                padding: 8px 18px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 45px;
+            }
+
+            .sidebar.expanded {
+                width: 140px;
+            }
+
+            .main-content {
+                margin-left: 45px;
+            }
+
+            .sidebar.expanded~.main-content {
+                margin-left: 140px;
+            }
+
+            .study-content {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 1.4em;
+            }
+
+            .illustration-section {
+                padding: 15px;
+            }
+
+            .illustration-section img {
+                max-height: 120px;
+            }
+
+            .progress-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .progress-container {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .page-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1em;
+            }
+
+            .concept-box {
+                padding: 15px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <button class="menu-toggle" onclick="toggleMenu()">📚</button>
+            <div class="menu-title">学习卡片</div>
+            <div id="card-menu"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sticky Header -->
+            <div class="sticky-header">
+                <div class="header-top">
+                    <h1 class="main-title" id="main-title"></h1>
+                    <div class="progress-row">
+                        <span class="progress-text"><span id="progress-percent">0</span>%</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-row">
+                    <button class="tab-btn active" onclick="switchTab('study')">📖 学习</button>
+                    <button class="tab-btn" onclick="switchTab('games')">🎮 游戏</button>
+                </div>
+            </div>
+
+            <!-- Study Tab -->
+            <div id="study-tab" class="tab-content active">
+                <div class="study-content">
+                    <div class="card-wrapper">
+                        <!-- Left Navigation -->
+                        <div class="side-nav">
+                            <button class="page-btn prev" onclick="prevPage()" id="prev-btn" disabled>◀</button>
+                        </div>
+
+                        <!-- Cards Area -->
+                        <div class="cards-area">
+                            <div id="cards-container">
+                                <div class="loading">
+                                    <div class="loading-spinner"></div>
+                                    <p>加载中...</p>
+                                </div>
+                            </div>
+                            <div class="page-indicator" id="pagination"></div>
+                            <!-- Complete Button (hidden by default) -->
+                            <button class="complete-btn" id="complete-btn" onclick="showGameRecommend()">✅
+                                我已学完！去玩游戏</button>
+                        </div>
+
+                        <!-- Right Navigation -->
+                        <div class="side-nav">
+                            <button class="page-btn next" onclick="nextPage()" id="next-btn">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Tab -->
+            <div id="games-tab" class="tab-content">
+                <div class="study-content">
+                    <div class="card-wrapper">
+                        <!-- Left Navigation -->
+                        <div class="side-nav">
+                            <button class="page-btn prev" onclick="prevGamePage()" id="game-prev-btn"
+                                disabled>◀</button>
+                        </div>
+
+                        <!-- Games Area -->
+                        <div class="cards-area">
+                            <div id="games-container">
+                                <!-- Game 1: Matching -->
+                                <div class="game-step active" data-game="0">
+                                    <h2 class="game-step-title">🎯 第1关：连连看</h2>
+                                    <p class="game-step-desc">点击左侧的 emoji，再点击右侧对应的单词！</p>
+                                    <div class="game-card">
+                                        <div class="match-container">
+                                            <div class="match-col" id="match-left"></div>
+                                            <div class="match-col" id="match-right"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Game 2: Spelling -->
+                                <div class="game-step" data-game="1">
+                                    <h2 class="game-step-title">✏️ 第2关：拼写填空</h2>
+                                    <p class="game-step-desc">根据提示填写缺失的字母！</p>
+                                    <div class="game-card" id="spelling-container"></div>
+                                </div>
+
+                                <!-- Game 3: Complete -->
+                                <div class="game-step" data-game="2">
+                                    <div class="complete-page">
+                                        <div class="complete-emoji">🎉</div>
+                                        <h2 class="complete-title">恭喜你！</h2>
+                                        <p class="complete-text">你完成了所有学习和游戏内容！</p>
+                                        <p class="complete-subtext">今天学习了<strong id="learned-count">0</strong>个新单词</p>
+                                        <button class="complete-share-btn" onclick="alert('分享功能开发中...')">📤
+                                            分享成就</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-indicator" id="game-pagination">
+                                <div class="page-dot active" onclick="goToGamePage(0)"></div>
+                                <div class="page-dot" onclick="goToGamePage(1)"></div>
+                                <div class="page-dot" onclick="goToGamePage(2)"></div>
+                            </div>
+                        </div>
+
+                        <!-- Right Navigation -->
+                        <div class="side-nav">
+                            <button class="page-btn next" onclick="nextGamePage()" id="game-next-btn">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="completeModal">
+        <div class="modal-content">
+            <h2>🎉 太棒了！</h2>
+            <p>你完成了所有学习内容！</p>
+            <p>去游戏区挑战一下吧！</p>
+            <button class="modal-btn" onclick="closeModal(); switchTab('games');">开始游戏 🎮</button>
+        </div>
+    </div>
+
+    <!-- Lightbox for image zoom -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <img id="lightbox-img" src="" alt="Large Image">
+    </div>
+
+    <script>
+        let cardsIndex = null;
+        let contentData = null;
+        let currentCardId = null;
+        let currentPageIndex = 0;
+        let readCards = new Set();
+
+        // Init
+        async function init() {
+            try {
+                const response = await fetch('./cards.json');
+                cardsIndex = await response.json();
+                renderMenu();
+                if (cardsIndex.cards.length > 0) {
+                    loadCard(cardsIndex.cards[0].id);
+                }
+            } catch (e) {
+                console.error('Failed to load cards.json:', e);
+                document.getElementById('card-menu').innerHTML = '<p style="color:white;font-size:0.8em;">加载失败</p>';
+            }
+        }
+
+        function renderMenu() {
+            const menu = document.getElementById('card-menu');
+            menu.innerHTML = cardsIndex.cards.map(card => `
+            <div class="menu-item" data-id="${card.id}" onclick="loadCard('${card.id}')">
+                <span class="menu-item-emoji">${card.emoji}</span>
+                <span class="menu-item-title">${card.title}</span>
+                <span class="menu-item-sub">${card.titleCn}</span>
+            </div>
+        `).join('');
+        }
+
+        async function loadCard(cardId) {
+            const cardInfo = cardsIndex.cards.find(c => c.id === cardId);
+            if (!cardInfo) return;
+
+            document.querySelectorAll('.menu-item').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-id') === cardId);
+            });
+
+            currentCardId = cardId;
+            currentPageIndex = 0;
+            readCards.clear();
+
+            document.getElementById('cards-container').innerHTML = `
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>加载中...</p>
+            </div>
+        `;
+
+            try {
+                const response = await fetch('./' + cardInfo.contentFile);
+                contentData = await response.json();
+                render();
+            } catch (e) {
+                console.error('Failed to load content:', e);
+                document.getElementById('cards-container').innerHTML = '<p style="color:red;text-align:center;">加载失败</p>';
+            }
+        }
+
+        function render() {
+            document.getElementById('main-title').innerHTML = `${contentData.titleEmoji} ${contentData.title}`;
+            document.title = `${contentData.title} - 快乐学习卡`;
+
+            currentPageIndex = 0;
+            readCards.add(contentData.cards[0].id);
+            updateProgress();
+
+            // Pagination dots only (buttons are in HTML)
+            const totalCards = contentData.cards.length;
+            const dotsHtml = contentData.cards.map((_, i) =>
+                `<div class="page-dot ${i === 0 ? 'active' : ''}" onclick="goToPage(${i})"></div>`
+            ).join('');
+            document.getElementById('pagination').innerHTML = dotsHtml;
+
+            // Update nav buttons state
+            document.getElementById('prev-btn').disabled = true;
+            document.getElementById('next-btn').disabled = (totalCards <= 1);
+
+            // Cards - each card shows illustration (card's own or default)
+            document.getElementById('cards-container').innerHTML = contentData.cards.map((card, i) =>
+                renderCard(card, i === 0, card.image || contentData.illustrationPath)
+            ).join('');
+
+            // Games
+            renderMatching();
+            renderSpelling();
+        }
+
+        function goToPage(index) {
+            const cards = document.querySelectorAll('.plant-card');
+            const dots = document.querySelectorAll('.page-dot');
+            const total = cards.length;
+
+            if (index < 0 || index >= total) return;
+            currentPageIndex = index;
+
+            cards.forEach((card, i) => card.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+            document.getElementById('prev-btn').disabled = (index === 0);
+            document.getElementById('next-btn').disabled = (index === total - 1);
+
+            const cardId = contentData.cards[index].id;
+            if (!readCards.has(cardId)) {
+                readCards.add(cardId);
+                updateProgress();
+            }
+
+            // 最后一页：延迟显示完成按钮
+            const completeBtn = document.getElementById('complete-btn');
+            if (completeBtn) {
+                if (index === total - 1) {
+                    setTimeout(() => {
+                        completeBtn.style.display = 'block';
+                        completeBtn.classList.add('show');
+                    }, 3000);
+                } else {
+                    completeBtn.style.display = 'none';
+                    completeBtn.classList.remove('show');
+                }
+            }
+        }
+
+        function prevPage() { goToPage(currentPageIndex - 1); }
+        function nextPage() { goToPage(currentPageIndex + 1); }
+
+        function renderCard(card, isActive = false, illustrationPath = null) {
+            const wordsHtml = card.words.map(w => `
+            <div class="word-item">
+                <div class="word-header">
+                    <span class="word-text">${w.word}</span>
+                    <span class="word-pron">${w.pronunciation}</span>
+                    <button class="audio-btn small" onclick="speak('${w.word.split('/')[0].trim()}')">🔊</button>
+                    ${w.extension ? `<button class="extension-toggle" onclick="toggleExt(this)">展开 ➕</button>` : ''}
+                </div>
+                <div class="word-tags">
+                    ${w.breakdown ? `<span class="tag tag-break">✂️ ${w.breakdown}</span>` : ''}
+                    ${w.memory ? `<span class="tag tag-memory">🧠 ${w.memory}</span>` : ''}
+                </div>
+                ${w.extension ? `<div class="extension-content"><span class="tag tag-related">🔗 ${w.extension}</span></div>` : ''}
+            </div>
+        `).join('');
+
+            const conceptEnglish = card.coreConcept.english.replace(/<hl>/g, '<span class="highlight">').replace(/<\/hl>/g, '</span>');
+
+            const illustrationHtml = illustrationPath ? `
+                <div class="illustration-compact" onclick="openLightbox('${illustrationPath}')">
+                    <img src="${illustrationPath}" alt="Illustration">
+                </div>
+            ` : '';
+
+            return `
+            <div class="plant-card ${isActive ? 'active' : ''}" data-card="${card.id}" style="border-left-color: ${card.color};">
+                ${illustrationHtml}
+                <div class="plant-title" style="color: ${card.color};">
+                    ${card.emoji} ${card.name} (${card.nameCn})
+                    <button class="audio-btn" onclick="speak(\`${card.audioText}\`)">🔊</button>
+                </div>
+                <div class="section-label">单词拆解</div>
+                <div class="word-analysis">${wordsHtml}</div>
+                <div class="section-label">核心概念</div>
+                <div class="concept-box">
+                    ${conceptEnglish}
+                    <span class="chinese-text">${card.coreConcept.chinese}</span>
+                </div>
+            </div>
+        `;
+        }
+
+        function renderMatching() {
+            const items = contentData.games.matching;
+            const shuffled = [...items].sort(() => Math.random() - 0.5);
+
+            document.getElementById('match-left').innerHTML = items.map(i =>
+                `<div class="match-item" data-id="${i.id}" onclick="selectLeft(this)">${i.emoji}</div>`
+            ).join('');
+
+            document.getElementById('match-right').innerHTML = shuffled.map(i =>
+                `<div class="match-item" data-match="${i.id}" onclick="selectRight(this)">${i.word}</div>`
+            ).join('');
+        }
+
+        function renderSpelling() {
+            const container = document.getElementById('spelling-container');
+            container.innerHTML = contentData.games.spelling.map(item => {
+                const displayHtml = item.display.map((char, i) => {
+                    if (item.blanks.includes(i)) {
+                        const ansIdx = item.blanks.indexOf(i);
+                        return `<input type="text" class="spell-input" maxlength="1" data-ans="${item.answers[ansIdx]}">`;
+                    }
+                    return ` ${char} `;
+                }).join('');
+
+                return `
+                <div class="spell-item">
+                    <div class="spell-icon">${item.emoji}</div>
+                    <div class="spell-input-container">${displayHtml}</div>
+                </div>
+            `;
+            }).join('') + '<button class="check-btn" onclick="checkSpelling()">检查答案</button>';
+        }
+
+        // TTS
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                speechSynthesis.cancel();
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Progress
+        function updateProgress() {
+            if (!contentData) return;
+            const total = contentData.cards.length;
+            const percent = Math.round((readCards.size / total) * 100);
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-percent').textContent = percent;
+        }
+
+        function closeModal() {
+            document.getElementById('completeModal').style.display = 'none';
+        }
+
+        // Lightbox
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Tabs
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName + '-tab').classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if ((tabName === 'study' && btn.textContent.includes('学习')) ||
+                    (tabName === 'games' && btn.textContent.includes('游戏'))) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Sidebar
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('expanded');
+        }
+
+        // Extension toggle
+        function toggleExt(btn) {
+            const content = btn.closest('.word-item').querySelector('.extension-content');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                btn.textContent = '展开 ➕';
+            } else {
+                content.style.display = 'block';
+                btn.textContent = '收起 ➖';
+            }
+        }
+
+        // Game: Match
+        let selectedLeft = null;
+
+        function selectLeft(el) {
+            if (el.classList.contains('correct')) return;
+            document.querySelectorAll('#match-left .match-item').forEach(i => i.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedLeft = el;
+        }
+
+        function selectRight(el) {
+            if (!selectedLeft || el.classList.contains('correct')) return;
+            const leftId = selectedLeft.getAttribute('data-id');
+            const rightId = el.getAttribute('data-match');
+
+            if (leftId === rightId) {
+                selectedLeft.classList.remove('selected');
+                selectedLeft.classList.add('correct');
+                selectedLeft.innerHTML += ' ✅';
+                el.classList.add('correct');
+                el.innerHTML += ' ✅';
+                selectedLeft = null;
+            } else {
+                el.style.backgroundColor = '#ffcdd2';
+                setTimeout(() => {
+                    if (!el.classList.contains('correct')) el.style.backgroundColor = '#f8f9fa';
+                }, 500);
+            }
+        }
+
+        // Game: Spelling
+        function checkSpelling() {
+            const inputs = document.querySelectorAll('.spell-input');
+            let correctCount = 0;
+            inputs.forEach(input => {
+                const val = input.value.toLowerCase();
+                const ans = input.getAttribute('data-ans').toLowerCase();
+                if (val === ans) {
+                    input.classList.remove('wrong');
+                    input.classList.add('correct');
+                    correctCount++;
+                } else {
+                    input.classList.remove('correct');
+                    input.classList.add('wrong');
+                }
+            });
+            if (correctCount === inputs.length) {
+                const btn = document.querySelector('#spelling-container .check-btn');
+                btn.textContent = "🎉 全部正确！";
+                btn.style.background = "linear-gradient(135deg, #2ecc71, #27ae60)";
+
+                // 更新学习单词数并跳转到完成页
+                if (contentData) {
+                    let wordCount = 0;
+                    contentData.cards.forEach(c => wordCount += c.words.length);
+                    document.getElementById('learned-count').textContent = wordCount;
+                }
+                setTimeout(() => goToGamePage(2), 1500);
+            }
+        }
+
+        // Game Navigation
+        let currentGameIndex = 0;
+
+        function goToGamePage(index) {
+            const steps = document.querySelectorAll('.game-step');
+            const dots = document.querySelectorAll('#game-pagination .page-dot');
+            const total = steps.length;
+
+            if (index < 0 || index >= total) return;
+            currentGameIndex = index;
+
+            steps.forEach((step, i) => step.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+            document.getElementById('game-prev-btn').disabled = (index === 0);
+            document.getElementById('game-next-btn').disabled = (index === total - 1);
+        }
+
+        function prevGamePage() { goToGamePage(currentGameIndex - 1); }
+        function nextGamePage() { goToGamePage(currentGameIndex + 1); }
+
+        // Show game recommendation
+        function showGameRecommend() {
+            document.getElementById('completeModal').style.display = 'flex';
+        }
+
+        // Init
+        init();
+    </script>
+
+</body>
+
+</html>
