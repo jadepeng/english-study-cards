@@ -1,0 +1,266 @@
+{
+    "title": "Pronunciation Rules",
+    "titleEmoji": "🔤",
+    "illustrationPath": "./illustration_pronunciation.png",
+    "cards": [
+        {
+            "id": "vowel_e",
+            "emoji": "🅴",
+            "name": "Vowel E",
+            "nameCn": "元音E",
+            "color": "#2ECC71",
+            "audioText": "The letter E has two sounds. Long E says its name: he, she, we, sheep, seed, see. Short E like in pen, ten, egg, elephant.",
+            "words": [
+                {
+                    "word": "he / she / we",
+                    "pronunciation": "/hiː/ /ʃiː/ /wiː/",
+                    "memory": "「长音E」就是字母E的名字读法",
+                    "breakdown": "单个元音e读长音 /iː/",
+                    "extension": "同发音: ee组合 → sheep, seed, see"
+                },
+                {
+                    "word": "sheep",
+                    "pronunciation": "/ʃiːp/",
+                    "memory": "绵羊叫声「咩咩」发长音",
+                    "breakdown": "sh + ee(长音) + p",
+                    "extension": "同组合: seed /siːd/, see /siː/"
+                },
+                {
+                    "word": "pen / ten",
+                    "pronunciation": "/pen/ /ten/",
+                    "memory": "「短音e」像说「诶」的感觉",
+                    "breakdown": "辅-元-辅结构读短音 /e/",
+                    "extension": "同结构: egg /eg/, elephant /ˈelɪfənt/"
+                }
+            ],
+            "coreConcept": {
+                "english": "Letter <hl>E</hl> has two sounds: long /iː/ like <hl>he, she, we</hl> and short /e/ like <hl>pen, ten</hl>.",
+                "chinese": "字母E有两种发音：长音 /iː/ 如 he, she, we；短音 /e/ 如 pen, ten。"
+            }
+        },
+        {
+            "id": "vowel_a",
+            "emoji": "🅰️",
+            "name": "Vowel A",
+            "nameCn": "元音A",
+            "color": "#E74C3C",
+            "audioText": "The letter A has two sounds. Long A says its name: cake, make, take, plate. Short A like in cat, apple, ant.",
+            "words": [
+                {
+                    "word": "cake / make / take",
+                    "pronunciation": "/keɪk/ /meɪk/ /teɪk/",
+                    "memory": "「元辅e」结构，a读名称音 /eɪ/",
+                    "breakdown": "c-a-k-e → 中间a发长音，末尾e不发音",
+                    "extension": "同结构: plate /pleɪt/, table /ˈteɪbl/"
+                },
+                {
+                    "word": "cat / apple",
+                    "pronunciation": "/kæt/ /ˈæpl/",
+                    "memory": "「辅元辅」结构，a读短音 /æ/",
+                    "breakdown": "c-a-t → 辅-元-辅，短音",
+                    "extension": "同结构: ant /ænt/, thank /θæŋk/"
+                },
+                {
+                    "word": "have",
+                    "pronunciation": "/hæv/",
+                    "memory": "⚠️ 例外！虽然是元辅e结构，但读短音",
+                    "breakdown": "h-a-v-e → 特殊词汇",
+                    "extension": "记住这个例外词！"
+                },
+                {
+                    "word": "plant",
+                    "pronunciation": "/plɑːnt/",
+                    "memory": "🇬🇧 英式发音用 /ɑː/，与美式不同",
+                    "breakdown": "pl-a-nt → 英式读法",
+                    "extension": "英式 /plɑːnt/ vs 美式 /plænt/"
+                }
+            ],
+            "coreConcept": {
+                "english": "Letter <hl>A</hl> has long /eɪ/ in <hl>cake, make</hl> and short /æ/ in <hl>cat, apple</hl>. <hl>Have</hl> is an exception!",
+                "chinese": "字母A在cake, make中读长音 /eɪ/，在cat, apple中读短音 /æ/。Have是例外词！"
+            }
+        },
+        {
+            "id": "th_sounds",
+            "emoji": "👅",
+            "name": "TH Sounds",
+            "nameCn": "TH发音",
+            "color": "#F39C12",
+            "audioText": "TH has two sounds. Voiced TH with vibration: this, that, they, there, mother, brother. Voiceless TH like blowing air: thank, three, thirsty.",
+            "words": [
+                {
+                    "word": "this / that / they",
+                    "pronunciation": "/ðɪs/ /ðæt/ /ðeɪ/",
+                    "memory": "「浊音」舌尖抵上牙，声带振动",
+                    "breakdown": "th + 元音 → 常见浊音词",
+                    "extension": "同发音: there /ðeər/, with /wɪð/, the /ðə/"
+                },
+                {
+                    "word": "mother / brother",
+                    "pronunciation": "/ˈmʌðər/ /ˈbrʌðər/",
+                    "memory": "家庭成员中的th都是浊音 /ð/",
+                    "breakdown": "mo-ther, bro-ther",
+                    "extension": "注意: father /ˈfɑːðər/ 中的a读 /ɑː/"
+                },
+                {
+                    "word": "thank / three",
+                    "pronunciation": "/θæŋk/ /θriː/",
+                    "memory": "「清音」舌尖抵上牙，吹气不振动",
+                    "breakdown": "th-ank, th-ree → 送气清音",
+                    "extension": "同发音: both /bəʊθ/, thirsty /ˈθɜːsti/"
+                }
+            ],
+            "coreConcept": {
+                "english": "<hl>TH</hl> has voiced /ð/ in <hl>this, that, mother</hl> and voiceless /θ/ in <hl>thank, three</hl>.",
+                "chinese": "TH有两种发音：浊音 /ð/ 如 this, that, mother；清音 /θ/ 如 thank, three。"
+            }
+        },
+        {
+            "id": "vowel_u",
+            "emoji": "🇺",
+            "name": "Vowel U",
+            "nameCn": "元音U",
+            "color": "#3498DB",
+            "audioText": "The letter U has two sounds. Short U like in bus, run, under. Long U says its name: cute, pupil, tube.",
+            "words": [
+                {
+                    "word": "bus / run / under",
+                    "pronunciation": "/bʌs/ /rʌn/ /ˈʌndər/",
+                    "memory": "「短音u」嘴巴张开说「啊」",
+                    "breakdown": "辅-u-辅 结构读短音 /ʌ/",
+                    "extension": "类似发音: mother, brother 中的u也发 /ʌ/"
+                },
+                {
+                    "word": "cute / pupil / tube",
+                    "pronunciation": "/kjuːt/ /ˈpjuːpl/ /tjuːb/",
+                    "memory": "「名称音u」读 /juː/ 像说「优」",
+                    "breakdown": "c-u-t-e → 元辅e结构，长音",
+                    "extension": "同结构: use /juːz/, music /ˈmjuːzɪk/"
+                }
+            ],
+            "coreConcept": {
+                "english": "Letter <hl>U</hl> has short /ʌ/ in <hl>bus, run</hl> and long /juː/ in <hl>cute, tube</hl>.",
+                "chinese": "字母U有短音 /ʌ/ 如 bus, run；长音 /juː/ 如 cute, tube。"
+            }
+        }
+    ],
+    "games": {
+        "matching": [
+            {
+                "id": "sheep",
+                "emoji": "🐑",
+                "word": "sheep"
+            },
+            {
+                "id": "cake",
+                "emoji": "🍰",
+                "word": "cake"
+            },
+            {
+                "id": "thank",
+                "emoji": "🙏",
+                "word": "thank"
+            },
+            {
+                "id": "bus",
+                "emoji": "🚌",
+                "word": "bus"
+            },
+            {
+                "id": "apple",
+                "emoji": "🍎",
+                "word": "apple"
+            },
+            {
+                "id": "mother",
+                "emoji": "👩",
+                "word": "mother"
+            }
+        ],
+        "spelling": [
+            {
+                "emoji": "🐑",
+                "display": [
+                    "s",
+                    "h",
+                    "_",
+                    "_",
+                    "p"
+                ],
+                "blanks": [
+                    2,
+                    3
+                ],
+                "answers": [
+                    "e",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🍰",
+                "display": [
+                    "c",
+                    "_",
+                    "k",
+                    "_"
+                ],
+                "blanks": [
+                    1,
+                    3
+                ],
+                "answers": [
+                    "a",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🍎",
+                "display": [
+                    "_",
+                    "p",
+                    "p",
+                    "l",
+                    "_"
+                ],
+                "blanks": [
+                    0,
+                    4
+                ],
+                "answers": [
+                    "a",
+                    "e"
+                ]
+            },
+            {
+                "emoji": "🙏",
+                "display": [
+                    "_",
+                    "h",
+                    "a",
+                    "n",
+                    "k"
+                ],
+                "blanks": [
+                    0
+                ],
+                "answers": [
+                    "t"
+                ]
+            },
+            {
+                "emoji": "🚌",
+                "display": [
+                    "b",
+                    "_",
+                    "s"
+                ],
+                "blanks": [
+                    1
+                ],
+                "answers": [
+                    "u"
+                ]
+            }
+        ]
+    }
+}

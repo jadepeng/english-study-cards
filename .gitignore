@@ -1,0 +1,16 @@
+# Wrangler / Cloudflare
+.wrangler/
+
+# 小程序目录 - 不部署到 Pages
+miniprogram/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

@@ -68,6 +68,21 @@
                 "蚂蚁",
                 "身体部位"
             ]
+        },
+        {
+            "id": "pronunciation_rules",
+            "title": "Pronunciation Rules",
+            "titleCn": "发音规则",
+            "emoji": "🔤",
+            "cover": "./illustration_pronunciation.png",
+            "contentFile": "content_pronunciation.json",
+            "difficulty": "medium",
+            "tags": [
+                "发音",
+                "元音",
+                "音标",
+                "自然拼读"
+            ]
         }
     ]
 }
